@@ -24,22 +24,8 @@
                 } 
                 else {
                     // Log out button has not been pressed, connect to database
-                    // Database connection variables are established
-                    $dbHost = "localhost";
-                    $dbUser = "root";
-                    $dbPassword = "";
-                    $dbName = "project";
-
-                    // Attempt to connect to database
-                    $connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
-
-                    // Check if the connection is successful, else display appropriate error message
-                    if (mysqli_connect_errno()) {
-                        echo "<h2>Connection Error</h2>";
-                        // Display connection error message
-                        echo mysqli_connect_error();
-                        die();
-                    }
+                    // Include the database connection file
+                    require_once 'config.php';
 
                     // Get accountID from session variable
                     $accountID = $_SESSION['accountID'];
